@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class BoardPreview extends React.Component {
     render () {
@@ -9,5 +10,8 @@ class BoardPreview extends React.Component {
             </div>
         )
     }
+}
+BoardPreview.propTypes = {
+    board: PropTypes.object.isRequired
 }
 export default BoardPreview;

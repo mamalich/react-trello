@@ -7,7 +7,7 @@ const boards = [
     {
         id: 2226,
         title: 'Ideias Casa',
-        background: '#5FAD7F'
+        background: '#34A770'
     },
     {
         id: 2227,
@@ -19,7 +19,7 @@ const boards = [
 const lists = [
     {
         id: 2225,
-        board: 2226,
+        board: 2225,
         title: 'Ideia 001',
         cards: [
             {
@@ -38,8 +38,9 @@ const lists = [
     },
     {
         id: 2226,
-        board: 2227,
+        board: 2226,
         title: 'Ideia 002',
+        cards: []
     },
     {
         id: 2227,
