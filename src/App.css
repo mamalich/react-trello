@@ -107,9 +107,6 @@ background: rgb(73, 176, 236);
 flex: 1;
 }
 
-.test-background{
-  background: #34A770;
-}
 /* BOARD */
 .board-header {
 display: flex;
