@@ -6,21 +6,20 @@ class List extends React.Component{
     state = {
         currentCards: []
     }
-    addCardtitleinput = React.createRef()
-    
+    addCardtextinput = React.createRef()
     creatyeNewCard = (e) => {
         e.preventDefault()
         const card = {
             listId: 2225,
             id: Math.random(),
-            text: this.addCardtitleinput.current.value,
+            text: this.addCardtextinput.current.value,
             labels: [],
             createdAt: new Date()
         }
         if (card.text) {
             this.setState({currentCards: [...this.state.currentCards, card]})
         }
-        this.addCardtitleinput.current.value = ''
+        this.addCardtextinput.current.value = ''
         console.log('new card add'+card.text);
     }
     render(){
@@ -46,7 +45,7 @@ class List extends React.Component{
                     name="listNewCardName"
                     type="text"
                     placeholder=" + Novo Card"
-                    ref={this.addCardtitleinput} />
+                    ref={this.addCardtextinput} />
                 </form>
             </div>
         )

@@ -7,11 +7,12 @@ class CreateBoardForm extends React.Component{
         title: '',
         background: '#34A770'
     }
+    addboardtitle = React.createRef()
     handleSubmit = (e) => {
         e.preventDefault()
         const board = {
             id: Math.random(),
-            title: this.state.title,
+            title: this.addboardtitle.current.value,
             background: this.state.background,
             createdAt: new Date(),
             createdUser: 'MAMALICH',
@@ -20,6 +21,7 @@ class CreateBoardForm extends React.Component{
         if (board.title && board.background){
             this.props.createNewBoard(board)
         }
+        this.addboardtitle.current.value = ''
     }
     render() {
         return (
@@ -32,7 +34,7 @@ class CreateBoardForm extends React.Component{
                     name='board-name'
                     placeholder='Board Name'
                     onChange={(e) => this.setState({title: e.target.value})}
-                />
+                    ref={this.addboardtitle} />
                 <select
                     name='board-background'
                     onChange={(e) => this.setState({background: e.target.value})}
