@@ -9,20 +9,25 @@ class Board extends React.Component{
     componentDidMount(){
         this.setState({currentLists: data.lists})
     }
-    creatyeNewList = () => {
+    addBoardtitleinput = React.createRef()
+    creatyeNewList = (e) => {
+        e.preventDefault()
         const list = {
             id: Math.random(),
-            title: "Novo Item da Lista",
+            title: this.addBoardtitleinput.current.value,
             board: 2226,
             cards: [],
             createdAt: new Date()
         }
-        this.setState({currentLists: [...this.state.currentLists, list]})
+        if (list.title) {
+            this.setState({currentLists: [...this.state.currentLists, list]})
+        }
+        this.addBoardtitleinput.current.value = ''
     }
     render(){
         return(
-            <div className="lists-wrapper">
-                <button onClick={this.creatyeNewList}>Nova Lista</button>
+        <div className="lists-wrapper">
+            <div className="lists-wrapper">                
                 <p>Board-js</p>
                 {Object.keys(this.state.currentLists).map(
                     key => (
@@ -33,6 +38,14 @@ class Board extends React.Component{
                     )
                 )}
             </div>
+            <form onSubmit={this.creatyeNewList} className="new-list-wrapper">
+                <input
+                name="boardNewListName"
+                type="text"
+                placeholder=" + Nova Lista"
+                ref={this.addBoardtitleinput} />
+            </form>
+        </div>
         )
     }
 }
